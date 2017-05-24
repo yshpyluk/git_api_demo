@@ -1,1 +1,1 @@
-# git_api_demo
+# Git API DEMO project
