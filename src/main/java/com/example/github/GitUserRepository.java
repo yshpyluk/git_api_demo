@@ -12,6 +12,4 @@ import java.util.Optional;
 public interface GitUserRepository extends JpaRepository<GitUser, Long> {
 
 	Optional<GitUser> findByLogin(String login);
-
-//	Optional<List<GitUser>> findAll();
 }

@@ -1,6 +1,5 @@
 package com.example.github;
 
-
 import com.example.github.entity.GitProject;
 import com.example.github.entity.GitUser;
 import com.example.github.entity.dto.GitProjectDto;
