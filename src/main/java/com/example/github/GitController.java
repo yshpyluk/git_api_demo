@@ -4,6 +4,7 @@ import com.example.github.entity.GitProject;
 import com.example.github.entity.GitUser;
 import com.example.github.entity.dto.GitProjectDto;
 import com.example.github.entity.dto.GitUserDto;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,9 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Created by yshpyluk on 5/9/17.
- */
 @RestController
 @RequestMapping("/github")
 public class GitController {

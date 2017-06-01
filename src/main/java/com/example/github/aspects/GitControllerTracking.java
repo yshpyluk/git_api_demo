@@ -1,39 +1,35 @@
 package com.example.github.aspects;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java.io.PrintStream;
-
-/**
- * Created by yshpyluk on 5/30/17.
- */
 @Aspect
+@Slf4j
+@Component
 public class GitControllerTracking {
-	@Autowired
-	public PrintStream stream;
 
 	@Before("execution(* com.example.github.GitController.getUsers())")
 	public void logGetUsersRequest() {
-		stream.println("getUsers endpoint is going to be triggered");
+		log.info("getUsers endpoint is going to be triggered");
 	}
 
 	@Around("execution(* com.example.github.GitController.getUser(String)) " +
 			"&& args(userName)")
-	public void aroundGetUser(ProceedingJoinPoint jp, String userName) throws Throwable {
-		stream.println("before getUser triggering with " + userName + " username");
+	public Object aroundGetUser(ProceedingJoinPoint jp, String userName) throws Throwable {
+		log.info("before getUser triggering with " + userName + " username");
 
 		try {
-			jp.proceed();
+			Object obj =  jp.proceed();
+			log.info("after getUser triggering with " + userName + " username");
+			return obj;
 		} catch (Throwable throwable) {
-			stream.println("exception in getUser endpoint with " + userName + " username");
-			stream.println(throwable.getMessage());
+			log.info("exception in getUser endpoint with " + userName + " username");
+			log.info(throwable.getMessage());
 			throw throwable;
 		}
-
-		stream.println("after getUser triggering with " + userName + " username");
 	}
 }

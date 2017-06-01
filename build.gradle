@@ -30,14 +30,13 @@ targetCompatibility = 1.8
 dependencies {
 //    runtime
 	compile('org.springframework.boot:spring-boot-starter-web')
-//    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
 	compile 'org.projectlombok:lombok:1.16.16'
 	compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
 	compile group: 'org.flywaydb', name: 'flyway-core', version: '4.2.0'
 
 // 	security
-//	compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.1.0.RELEASE'
-//	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.5.3.RELEASE'
+	compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.1.0.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.5.3.RELEASE'
 
 //  ui
 	compile group: 'org.webjars', name: 'angularjs', version: '1.6.4'
@@ -50,8 +49,12 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile 'com.h2database:h2:1.4.194'
 
+//	documentation
+	compile 'io.springfox:springfox-swagger2:2.6.1'
+
 //  tests
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 	testCompile('com.jayway.jsonpath:json-path')
 	testCompile("junit:junit")
+	compile group: 'org.springframework.security', name: 'spring-security-test', version: '4.0.0.RELEASE'
 }

@@ -5,9 +5,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-/**
- * Created by yshpyluk on 5/9/17.
- */
 @Getter
 @Setter
 @Entity
